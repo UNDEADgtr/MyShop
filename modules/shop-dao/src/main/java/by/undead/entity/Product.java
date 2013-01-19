@@ -80,4 +80,32 @@ public class Product {
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Product product = (Product) o;
+
+        if (description != null ? !description.equals(product.description) : product.description != null) return false;
+        if (id != null ? !id.equals(product.id) : product.id != null) return false;
+        if (imagePath != null ? !imagePath.equals(product.imagePath) : product.imagePath != null) return false;
+        if (price != null ? !price.equals(product.price) : product.price != null) return false;
+        if (title != null ? !title.equals(product.title) : product.title != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = 31 * result + (price != null ? price.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (imagePath != null ? imagePath.hashCode() : 0);
+        return result;
+    }
+
+
 }

@@ -69,6 +69,30 @@ public class ProductDetails {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ProductDetails that = (ProductDetails) o;
+
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (product_id != null ? !product_id.equals(that.product_id) : that.product_id != null) return false;
+        if (title != null ? !title.equals(that.title) : that.title != null) return false;
+        if (value != null ? !value.equals(that.value) : that.value != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (product_id != null ? product_id.hashCode() : 0);
+        result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = 31 * result + (value != null ? value.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "ProductDetails{" +
                 "id=" + id +
@@ -78,27 +102,4 @@ public class ProductDetails {
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        ProductDetails that = (ProductDetails) o;
-
-        if (!id.equals(that.id)) return false;
-        if (!product_id.equals(that.product_id)) return false;
-        if (!title.equals(that.title)) return false;
-        if (!value.equals(that.value)) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id.hashCode();
-        result = 31 * result + product_id.hashCode();
-        result = 31 * result + title.hashCode();
-        result = 31 * result + value.hashCode();
-        return result;
-    }
 }
