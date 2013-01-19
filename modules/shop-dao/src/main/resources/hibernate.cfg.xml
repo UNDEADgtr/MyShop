@@ -18,7 +18,8 @@
         <mapping class="by.undead.entity.Product"/>
         <mapping class="by.undead.entity.ProductDetails"/>
         <mapping class="by.undead.entity.User"/>
-        <mapping class="by.undead.entity.Order"/>ProductOrderProductOrderProductOrder
+        <mapping class="by.undead.entity.Order"/>
+        <mapping class="by.undead.entity.ProductOrder"/>
 
     </session-factory>
 </hibernate-configuration>
