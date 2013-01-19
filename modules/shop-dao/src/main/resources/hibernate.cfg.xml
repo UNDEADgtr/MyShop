@@ -15,7 +15,10 @@
         <property name="show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">validate</property>
         <!-- Mapping files -->
-        <mapping class="by.undead."/>
+        <mapping class="by.undead.entity.Product"/>
+        <mapping class="by.undead.entity.ProductDetails"/>
+        <mapping class="by.undead.entity.User"/>
+        <mapping class="by.undead.entity.Order"/>ProductOrderProductOrderProductOrder
 
     </session-factory>
 </hibernate-configuration>

@@ -1,5 +1,7 @@
 package by.undead.entity;
 
+import javax.persistence.*;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Dzmitry
@@ -7,16 +9,24 @@ package by.undead.entity;
  * Time: 21:37
  * To change this template use File | Settings | File Templates.
  */
+@Entity
+@Table(name = "user")
 public class User {
 
+    @Id
+    @GeneratedValue
     private Long id;
 
+    @Column
     private String login;
 
+    @Column
     private String password;
 
+    @Column
     private String role;
 
+    @Column
     private String name;
 
     public User() {
@@ -94,5 +104,16 @@ public class User {
         result = 31 * result + (role != null ? role.hashCode() : 0);
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
