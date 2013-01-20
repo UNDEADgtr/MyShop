@@ -5,6 +5,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,17 +32,27 @@ public class BaseDao<T> implements DAO<T> {
         try {
             session.save(t);
             trans.commit();
-        }  catch (HibernateException ex){
+        } catch (HibernateException ex) {
             trans.rollback();
             throw new DaoException(ex);
         }
 
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return t;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
     public List<T> readAll() throws DaoException {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        Session session = util.getSession();
+        Transaction trans = session.beginTransaction();
+        List<T> list = new ArrayList<T>();
+        try {
+            list = session.createCriteria(cl).list();
+            trans.commit();
+        } catch (HibernateException ex) {
+            trans.rollback();
+            throw new DaoException(ex);
+        }
+        return list;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
@@ -51,7 +62,17 @@ public class BaseDao<T> implements DAO<T> {
 
     @Override
     public T read(Integer id) throws DaoException {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        Session session = util.getSession();
+        Transaction trans = session.beginTransaction();
+        T t;
+        try {
+            t = (T) session.get(cl, id);
+            trans.commit();
+        } catch (HibernateException ex) {
+            trans.rollback();
+            throw new DaoException(ex);
+        }
+        return t;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
@@ -61,12 +82,29 @@ public class BaseDao<T> implements DAO<T> {
 
     @Override
     public T update(T t) throws DaoException {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        Session session = util.getSession();
+        Transaction trans = session.beginTransaction();
+        try {
+            session.saveOrUpdate(t);
+            trans.commit();
+        } catch (HibernateException ex) {
+            trans.rollback();
+            throw new DaoException(ex);
+        }
+        return t;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
     public void delete(Integer id) throws DaoException {
-        //To change body of implemented methods use File | Settings | File Templates.
+        Session session = util.getSession();
+        Transaction trans = session.beginTransaction();
+        try {
+            session.delete(session.get(cl, id));
+            trans.commit();
+        } catch (HibernateException ex) {
+            trans.rollback();
+            throw new DaoException(ex);
+        }
     }
 
     @Override
