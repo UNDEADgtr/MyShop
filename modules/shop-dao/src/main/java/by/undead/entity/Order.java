@@ -11,7 +11,7 @@ import java.sql.Timestamp;
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 public class Order {
 
     @Id

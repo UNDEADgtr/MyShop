@@ -10,7 +10,7 @@ import javax.persistence.*;
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(name = "product_order")
+@Table(name = "product_orders")
 public class ProductOrder {
 
     @Id
@@ -23,6 +23,8 @@ public class ProductOrder {
     @Column
     private Float price;
 
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "product_id")
     private Product product;
 
     public ProductOrder() {

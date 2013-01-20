@@ -10,7 +10,7 @@ import javax.persistence.*;
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(name = "product")
+@Table(name = "products")
 public class Product {
 
     @Id
@@ -24,7 +24,7 @@ public class Product {
     private Long price;
 
     @Column
-    private String description;
+    private String discription;
 
     @Column
     private String imagePath;
@@ -33,11 +33,11 @@ public class Product {
     public Product() {
     }
 
-    public Product(String title, Long price, String description, String imagePath) {
+    public Product(String title, Long price, String discription, String imagePath) {
         super();
         this.title = title;
         this.price = price;
-        this.description = description;
+        this.discription = discription;
         this.imagePath = imagePath;
     }
 
@@ -65,12 +65,12 @@ public class Product {
         this.price = price;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDiscription() {
+        return discription;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDiscription(String discription) {
+        this.discription = discription;
     }
 
     public String getImagePath() {
@@ -88,7 +88,7 @@ public class Product {
 
         Product product = (Product) o;
 
-        if (description != null ? !description.equals(product.description) : product.description != null) return false;
+        if (discription != null ? !discription.equals(product.discription) : product.discription != null) return false;
         if (id != null ? !id.equals(product.id) : product.id != null) return false;
         if (imagePath != null ? !imagePath.equals(product.imagePath) : product.imagePath != null) return false;
         if (price != null ? !price.equals(product.price) : product.price != null) return false;
@@ -102,7 +102,7 @@ public class Product {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (price != null ? price.hashCode() : 0);
-        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (discription != null ? discription.hashCode() : 0);
         result = 31 * result + (imagePath != null ? imagePath.hashCode() : 0);
         return result;
     }
