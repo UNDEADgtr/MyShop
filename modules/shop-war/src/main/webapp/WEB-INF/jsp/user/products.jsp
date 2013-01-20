@@ -29,7 +29,7 @@
 
     <div class="row">
         <c:forEach var="product" items="${products}">
-            <div class="span5">
+            <div class="span4">
 
             <div class="span3">
                 <h4>${product.title}<h4>
