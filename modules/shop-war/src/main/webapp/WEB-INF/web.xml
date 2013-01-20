@@ -4,4 +4,28 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+    <welcome-file-list>
+        <welcome-file>products</welcome-file>
+    </welcome-file-list>
+
+    <!--servlet-->
+    <servlet>
+        <servlet-name>Products</servlet-name>
+        <servlet-class>by.undead.web.controller.ProductController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Products</servlet-name>
+        <url-pattern>/products</url-pattern>
+    </servlet-mapping>
+
+    <!--jsp-->
+    <servlet>
+        <servlet-name>Products123</servlet-name>
+        <jsp-file>/WEB-INF/jsp/user/products.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Products123</servlet-name>
+        <url-pattern>/products123</url-pattern>
+    </servlet-mapping>
+
 </web-app>
