@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="row" id="footer">
     <div class="span3">
-        123
+
     </div>
     <div class="span6">
         <ul class="nav nav-pills">
@@ -12,6 +12,5 @@
         </ul>
     </div>
     <div class="span3">
-        123
     </div>
 </div>

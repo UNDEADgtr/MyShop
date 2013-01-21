@@ -20,12 +20,31 @@
 
     <!--jsp-->
     <servlet>
-        <servlet-name>Products123</servlet-name>
-        <jsp-file>/WEB-INF/jsp/user/products.jsp</jsp-file>
+        <servlet-name>About</servlet-name>
+        <jsp-file>/WEB-INF/jsp/another/about.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Products123</servlet-name>
-        <url-pattern>/products123</url-pattern>
+        <servlet-name>About</servlet-name>
+        <url-pattern>/about</url-pattern>
     </servlet-mapping>
+
+    <!--url rewrite-->
+
+    <filter>
+        <filter-name>UrlRewriteFilter</filter-name>
+        <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+        <init-param>
+            <param-name>logLevel</param-name>
+            <param-value>DEBUG</param-value>
+        </init-param>
+        <init-param>
+            <param-name>statusEnabled</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>UrlRewriteFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
 </web-app>

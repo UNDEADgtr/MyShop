@@ -14,10 +14,16 @@ import java.io.IOException;
  */
 public class CommandFactory {
 
-    public static Command getProducts(HttpServletRequest request, HttpServletResponse response){
+    public static Command getProducts(HttpServletRequest request, HttpServletResponse response) {
         Command command = new ShowProductsCommand();
+        String id = request.getParameter("id");
 
+        if (id != null) {
+            if (id.matches("[0-9]+")) {
+                command = new ShowProductCommand(Long.parseLong(id));
+            }
+        }
         return command;
     }
 
-    }
+}

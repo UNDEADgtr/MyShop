@@ -17,7 +17,7 @@ public interface DAO<T> {
 
     List<T> readAll(String query) throws DaoException;
 
-    T read(Integer id) throws DaoException;
+    T read(Long id) throws DaoException;
 
     T read(String query) throws DaoException;
 

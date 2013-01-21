@@ -61,7 +61,7 @@ public class BaseDao<T> implements DAO<T> {
     }
 
     @Override
-    public T read(Integer id) throws DaoException {
+    public T read(Long id) throws DaoException {
         Session session = util.getSession();
         Transaction trans = session.beginTransaction();
         T t;
