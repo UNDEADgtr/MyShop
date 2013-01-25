@@ -17,6 +17,25 @@
     <br>
     <jsp:include page="/WEB-INF/jsp/part/user_header.jsp"></jsp:include>
 
+    <div class="row">
+        <div class="span9">
+            <jsp:include page="/WEB-INF/jsp/part/error.jsp"></jsp:include>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span5">
+            <h5>
+                ${product.title}
+            </h5>
+            <h5>
+                ${product.price}
+            </h5>
+            <h5>
+                ${product.discription}
+            </h5>
+        </div>
+    </div>
 
     <jsp:include page="/WEB-INF/jsp/part/footer.jsp"></jsp:include>
 </div>

@@ -36,7 +36,6 @@ public class ShowProductCommand implements Command {
         } catch (Exception ex) {
             request.setAttribute("MessageError", ex.getMessage());
         }
-
         RequestDispatcher dis = request.getRequestDispatcher(url);
         if (product == null) {
             request.setAttribute("MessageError", "product not found = " + id);
