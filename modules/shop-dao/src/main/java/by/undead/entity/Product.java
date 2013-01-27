@@ -1,6 +1,10 @@
 package by.undead.entity;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -28,6 +32,20 @@ public class Product {
 
     @Column
     private String imagePath;
+
+        @Fetch(FetchMode.SELECT)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "product_id")
+    @OrderBy(value = "title")
+    private List<ProductDetails> details;
+
+    public List<ProductDetails> getDetails() {
+        return details;
+    }
+
+    public void setDetails(List<ProductDetails> details) {
+        this.details = details;
+    }
 
 
     public Product() {
